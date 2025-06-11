@@ -1,18 +1,14 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-import MySiteLayout from '../layouts/MySiteLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Home Page"
+import '../styles/global.css'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-<mySiteLayout>
-	<p>My page content, wrapped in a layout!</p>
-</mySiteLayout>
-<body>
-	<a href="/">Home</a>
-    <a href="/about">About</a>
-	<a href="/blog">Blog</a>
-	<h1>Astro</h1>
-	<h1>My Astro site</h1>
-</body>
+
+
+<BaseLayout pagetTitle={pageTitle}>
+	<h2>Testing layouts</h2>
+</BaseLayout>
+

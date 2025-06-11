@@ -1,4 +1,8 @@
 ---
+import '../styles/global.css'
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+
 const pageTitle = "About Me Dynamic";
 
 const identity = {
@@ -12,14 +16,26 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Writing Docs"];
 const happy = true;
 const finished = false;
 const goal = 3;
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 <head>
     <title>Home Blog</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+        h1 {
+            color: purple;
+            font-size: 4rem;
+        }
+        .skill {
+            color: var(--skillColor);
+            font-weight: var(--fontWeight);
+            text-transform: var(--textCase);
+        }
+    </style>
 </head>
 <body>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
+    <Header />
     <h1>My Site</h1>
     <h1>{pageTitle}</h1>
     <h2>And my new site!</h2>
@@ -33,9 +49,10 @@ const goal = 3;
         }
     </ul>
     <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
     {happy && <p>I am happy to be learning.</p>}
     {finished && <p>I finished learning!</p>}
     {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+    <Footer />
 </body>
